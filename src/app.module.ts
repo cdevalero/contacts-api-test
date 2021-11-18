@@ -19,7 +19,7 @@ import { ContactModule } from './contact/contact.module';
       ssl: {
         rejectUnauthorized: false,
       },
-      entities: ['src/**/**/*.entity{.ts,.js}'],
+      // entities: ['src/**/**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
     }),
