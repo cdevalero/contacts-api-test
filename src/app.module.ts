@@ -9,12 +9,17 @@ import { ContactModule } from './contact/contact.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
+      // host: process.env.HOST,
+      // port: parseInt(<string>process.env.DB_PORT),
+      // username: process.env.USERNAME,
+      // password: process.env.PASSWORD,
+      // database: process.env.DATABASE,
+      url: process.env.DATABASE_URL,
       type: 'postgres',
-      host: process.env.HOST,
-      port: parseInt(<string>process.env.DB_PORT),
-      username: process.env.USERNAME,
-      password: process.env.PASSWORD,
-      database: process.env.DATABASE,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+      entities: ['src/**/**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
     }),
